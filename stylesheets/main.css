@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(../type/SourceCodePro-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(../type/SourceSansPro-Light.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Varela Round'), local('VarelaRound-Regular'), url(../type/VarelaRound-Regular.otf) format('opentype');
+}
+
 body {
   font-family: 'Varela Round', sans-serif;
   font-weight: 400;
