@@ -64,6 +64,7 @@ pre {
   border-radius: 2pt;
   letter-spacing: 0.4pt;
   line-height: 15pt;
+  overflow-x: scroll;
 }
 
 code {
@@ -82,6 +83,10 @@ a:visited, a:hover, a:link {
 
 a:active {
   color: #E94E12;
+}
+
+.description {
+  text-align: center;
 }
 
 .menu {

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>git-comment</title>
-    <meta name="description" content="">
+    <meta name="description" content="Distributed collaboration tools built on git">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/main.css">
   </head>
@@ -12,111 +12,80 @@
     <header>
       <h1 class="primary">git-comment</h1>
       <hr/>
-      <p>Distributed, offline, searchable plain text comments stored with git history without altering commits</p>
-      <p><span class="primary">git-comment</span> is an open source specification, library, and collection of tools enabling decentralized collaboration around git repositories.</p>
+      <p class="description">Distributed, offline, searchable plain
+      text comments stored with git history without altering commits</p>
+      <p class="description"><span class="primary">git-comment</span>
+      is an open source specification, library, and collection of tools
+      enabling decentralized collaboration around git repositories.</p>
       <section class="menu">
-        <a href="#getting-started" class="item">Getting Started</a>
+        <a href="#installation" class="highlight">Installation</a>
+        <a href="#support" class="item">Support</a>
         <a href="#contributing" class="item">Contributing</a>
-        <a href="#downloads" class="highlight">Downloads</a>
       </section>
     </header>
     <section>
-      <h2>Why?</h2>
-      <p>Comments on git commits are siloed into various web services or backed up externally, when all repo history can be stored together and accessible offline.</p>
-    </section>
-    <section>
-      <h2>Use Cases</h2>
+      <h2>Uses</h2>
       <ul>
         <li>Share comment history with every collaborator</li>
-        <li>Support an open format for web services to store comments</li>
         <li>Review and annotate changesets while offline</li>
         <li>Search for comments by content, author, or commit while offline</li>
         <li>Validate and filter comment content using hooks</li>
         <li>Export comments from web services into local backups</li>
+        <li>Support an open format for web services to store comments</li>
       </ul>
     </section>
     <section>
-      <h2 id="getting-started">Getting Started</h2>
-      <h3>Installation</h3>
-      <h3>Configuration</h3>
-      <p>A reference plugin for vim can be found <a href="#">here</a>. Submissions for other editor integrations are encouraged!</p>
+      <h2 id="getting-started">Installation</h2>
+      <p>Building from source requires:</p>
+      <ul>
+        <li><a href="http://golang.org">Go</a> 1.4</li>
+        <li><a href="https://libgit2.github.com">libgit2</a> 0.22</li>
+        <li><a href="https://www.gnu.com/software/make">make</a></li>
+        <li>various libraries available via <code>go get</code>,
+        installable by running <code>make bootstrap</code></li>
+      </ul>
+      <pre>
+git clone https://github.com/kattrali/git-comment.git
+cd git-comment
+make bootstrap
+make
+make install</pre>
     </section>
     <section>
-      <h2 id="usage">Usage</h2>
-      <h3>Adding Comments</h3>
-      <p>
-      The <code>git-comment</code> binary can add comments to commits, optionally with a file and
-        line reference. It includes a helper command (<code>--configure-remote</code>) for
-        fetching and pushing comments by default with other refs. Creating a
-        comment without a supplied message opens the default git editor.
-      </p>
-      <pre>
-git comment [-m &lt;msg&gt;] [-c &lt;commit&gt;] [&lt;filepath:line&gt;]
-git comment --delete &lt;comment&gt;
-git comment --configure-remote &lt;remote&gt;
-git comment --help
-git comment --version</pre>
-      <p><code>git-comment-web</code> starts a web server providing a friendly web interface for adding comments on a
-      diff.</p>
-      <pre>
-git comment-web [&lt;revision range&gt;] [--port &lt;port&gt;]
-git comment-web --help
-git comment-web --version</pre>
-      <h3>Viewing Comments</h3>
-      <p>View comments and associated diffs by commit or tree using <code>git-comment-log</code>.</p>
-      <pre>
-git comment-log [--pretty &lt;format&gt;] [&lt;revision range&gt;]
-git comment-log --help
-git comment-log --version</pre>
-      <p><code>git-comment-web</code> also provides a friendly web interface for viewing comments on a
-      diff.</p>
-      <h3>Searching comments </h3>
-      <p><code>git-comment-grep</code> prints comments matching text</p>
-      <pre>
-git comment-grep find &lt;text&gt;
-git comment-grep index
-git comment-grep --help
-git comment-grep --version</pre>
-      <h3>Exporting Comments from Web Services</h3>
-      <p>Retrieve all commits from external services including GitHub and Bitbucket</p>
+      <h2 id="support">Support</h2>
+      <p>Bugs can be reported to the <a href="#">git-comment issue
+      tracker</a>. If the manual and guides are not enough, you can try
+    the <code>#git-comment</code> channel on <a
+      href="irc.freenode.net">Freenode IRC</a>.</p>
+      <ul>
+        <li><a href="#">User Guide</a></li>
+        <li><a href="#">Tool Manuals</a></li>
+      </ul>
     </section>
     <section>
       <h2 id="contributing">Contributing</h2>
-      <h3>Architecture</h3>
-      <p>
-        Comments are regular git objects, stored in a format similar to tags,
-        with the addition of file and line references and a flag for deletion. A
-        reference for the comment is added in refs/comments for lookup by
-        commit. Example:
-      </p>
-      <pre>
-commit 0155eb4229851634a0f03eb265b69f5a2d56f341
-file src/example.txt:12
-author Delisa Mason &lt;name@example.com&gt;
-created 1243040974 -0900
-amender Delisa Mason &lt;name@example.com&gt;
-amended 1243040974 -0900
-
-Too many levels of indentation here.</pre>
-      <h3>Style Guide</h3>
+      <p>There are several more tasks to complete to make git-comment
+      into a more robust solution. Definite tasks documented in the
+      <a href="#">Roadmap</a> and include editor integrations, GPG
+      signing, and formatting/applying comments as patches.
+      Contributions welcome!</p>
+      <ul>
+        <li><a href="#">Contributing Guidelines</a></li>
+        <li><a href="#">Git Repository</a></li>
+        <li><a href="#">Comment Specification</a></li>
+      </ul>
     </section>
     <section>
-      <h2 id="downloads">Downloads</h2>
-      <h3>Binaries</h3>
-      <ul>
-        <li><a href="#">64-bit Linux</a></li>
-        <li><a href="#">OS X 10.9+</a></li>
-        <li><a href="#">Windows 7+</a></li>
-      </ul>
-      <h3>Source</h3>
-      <ul>
-        <li><a href="#">Release 1.0.0.0</a></li>
-        <li><a href="#">master</a></li>
-      </ul>
+      <h2 id="license">License</h2>
+      <p>git-comment uses the BSD license as detailed in the
+      <a href="#">LICENSE</a> file.</p>
     </section>
     <footer>
       <section>
-        &copy; 2015 <a href="http://delisa.me">Delisa Mason</a> | <a href="#">Source</a> <a href="#">Issues</a>
+        &copy; 2015 <a href="http://delisa.me">Delisa Mason</a>
+        |  <a href="#">Source</a>
+        &middot; <a href="#">User Guide</a>
+        &middot; <a href="#">Issue Tracker</a>
       </section>
     </footer>
   </body>
