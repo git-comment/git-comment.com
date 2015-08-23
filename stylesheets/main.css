@@ -38,7 +38,7 @@ h1 {
   font-weight: 300;
   letter-spacing: 2pt;
   margin-bottom: 30pt;
-  margin-top: 40pt;
+  margin-top: 4pt;
 }
 
 h2, h3 {
@@ -85,6 +85,12 @@ a:active {
   color: #E94E12;
 }
 
+.logo {
+  max-width: 60pt;
+  display:block;
+  margin:40pt auto 0 auto;
+}
+
 .description {
   text-align: center;
 }
@@ -117,5 +123,38 @@ a:active {
 @media only screen and (max-device-width : 650px) {
   .item, .highlight {
     display: inline-block;
+  }
+
+  header, section {
+    margin: 6pt;
+  }
+
+  h1 {
+    margin-bottom: 20pt;
+  }
+
+  hr {
+    margin-bottom: 26pt;
+  }
+
+  ul {
+    padding: 0 0 0 14pt;
+  }
+
+  .logo {
+    margin:30pt auto 0 auto;
+  }
+
+  .menu {
+    margin: 32pt 0;
+  }
+
+  .highlight, .highlight:link, .highlight:hover, .highlight:visited {
+    padding: 7pt 12pt;
+    margin: 0;
+  }
+
+  .item {
+    margin: 2pt;
   }
 }
