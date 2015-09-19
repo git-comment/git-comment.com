@@ -85,6 +85,15 @@ a:active {
   color: #E94E12;
 }
 
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background-color: #E94E12;
+  color: #FFF;
+}
+
 .logo {
   max-width: 60pt;
   display:block;
@@ -151,7 +160,7 @@ a:active {
   }
 
   ul {
-    padding: 0 0 0 14pt;
+    padding: 0 0 0 18pt;
   }
 
   .logo {
